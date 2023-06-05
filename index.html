@@ -25,7 +25,8 @@
     </style>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        var videoId = '9-hsD4WRBoM';
+        // Replace '2RPuAW7E-YQ' with the actual YouTube video ID
+        var videoId = '2RPuAW7E-YQ';
 
         var player;
         function onYouTubeIframeAPIReady() {
@@ -33,10 +34,8 @@
                 videoId: videoId,
                 playerVars: {
                     autoplay: 1,
-                    controls: 0,
                     loop: 1,
-                    playlist: videoId,
-                    mute: 1
+                    playlist: videoId
                 },
                 events: {
                     onReady: onPlayerReady
@@ -45,7 +44,7 @@
         }
 
         function onPlayerReady(event) {
-            event.target.mute();
+            event.target.playVideo();
         }
     </script>
 </head>
