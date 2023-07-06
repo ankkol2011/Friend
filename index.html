@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Full Screen YouTube Video Website</title>
+    <title>Password-Protected YouTube Video Website</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            
+            background-image: url('your-image-url.jpg'); /* Replace 'your-image-url.jpg' with the URL of your background image */
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .password-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .password-input {
+            margin-bottom: 10px;
+        }
+        
+        .password-submit {
+            padding: 5px 10px;
         }
         
         #video-container {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -26,8 +50,8 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         // Replace '2RPuAW7E-YQ' with the actual YouTube video ID
-        var videoId = '2RPuAW7E-YQ';
-
+        //var videoId = '2RPuAW7E-YQ';
+          var videoId = '8rkwKZzXJ1E-YQ';
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
@@ -46,9 +70,31 @@
         function onPlayerReady(event) {
             event.target.playVideo();
         }
+        
+        function submitPassword() {
+            var password = document.getElementById('password-input').value;
+            
+            your_password = 'ankkol' // Edit the password according to your needs
+
+            if (password === your_password) {
+                document.getElementById('password-form').style.display = 'none';
+                document.getElementById('video-container').style.display = 'block';
+                
+                // Start loading the YouTube video
+                onYouTubeIframeAPIReady();
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
     </script>
 </head>
 <body>
+    <div id="password-form" class="password-form">
+        <h2>Enter Password</h2>
+        <input type="password" id="password-input" class="password-input" placeholder="Password">
+        <button onclick="submitPassword()" class="password-submit">Submit</button>
+    </div>
+    
     <div id="video-container">
         <div id="player"></div>
     </div>
