@@ -6,12 +6,13 @@
         body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
+        }
+        
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            width: 100vw;
-            
             background-image: url('../Friend/IMG_20230610_182834.jpg'); /* Replace 'your-image-url.jpg' with the URL of your background image */
             background-size: cover;
             background-position: center;
@@ -21,14 +22,21 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
         }
         
         .password-input {
             margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
         }
         
         .password-submit {
             padding: 5px 10px;
+            width: 100%;
         }
         
         #video-container {
@@ -48,8 +56,16 @@
         }
         
         header {
-            text-align: left;
+            text-align: center;
             margin-bottom: 20px;
+            padding: 0 20px;
+            color: #fff;
+        }
+        
+        @media screen and (max-width: 600px) {
+            header {
+                font-size: 18px;
+            }
         }
     </style>
     <script src="https://www.youtube.com/iframe_api"></script>
@@ -78,7 +94,7 @@
         function submitPassword() {
             var password = document.getElementById('password-input').value;
             
-            your_password = 'ankkol' // Edit the password according to your needs
+            your_password = 'ankkol'; // Edit the password according to your needs
 
             if (password === your_password) {
                 document.getElementById('password-form').style.display = 'none';
@@ -95,8 +111,8 @@
 <body>
     <header>
         <h1>Hi Shreya!!!</h1>
-        <h2>Something special will be uploaded soon , </h2>
-        <h2>do check after sometime </h2>
+        <h2>Something special will be uploaded soon,</h2>
+        <h2>do check after some time.</h2>
     </header>
     
     <div id="password-form" class="password-form">
